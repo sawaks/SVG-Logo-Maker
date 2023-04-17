@@ -1,0 +1,17 @@
+{
+  "name": "svg-logo-maker",
+  "version": "1.0.0",
+  "description": "Input your text, text color, which shape from lists and what's the color. And then you can generate a simple logo.  ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^9.1.5",
+    "jest": "^29.5.0"
+  }
+}
