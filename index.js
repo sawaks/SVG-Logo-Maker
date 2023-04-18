@@ -51,7 +51,7 @@ function writeToFile(fileName, data) {
 }
 
 function init() {
-    writeToFile('./examples/result.svg', questions);
+    writeToFile('./examples/logo.svg', questions);
 }
 
 init();
