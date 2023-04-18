@@ -2,7 +2,7 @@ const fs = require('fs');
 const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
 const inquirer = require('inquirer');
-const Render = require('./lib/shapes.js');
+const { Render } = require('./lib/shapes.js');
 
 
 const questions = [{
@@ -43,7 +43,7 @@ function writeToFile(fileName, data) {
         return writeFile(fileName, svg);
     })
         .then(() => {
-            console.log('file writing successful');
+            console.log('Generated logo.svg.');
         })
         .catch((err) => {
             console.log(err);
