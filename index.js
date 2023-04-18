@@ -1,6 +1,8 @@
-const { readFile, writeFile } = require('fs/promises');
+const fs = require('fs');
+const { promisify } = require('util');
+const writeFile = promisify(fs.writeFile);
 const inquirer = require('inquirer');
-const renderSVG = require('./liv/shapes.js');
+const Render = require('./lib/shapes.js');
 
 
 const questions = [{
@@ -10,7 +12,7 @@ const questions = [{
 },
 {
     type: 'input',
-    name: 'text-color',
+    name: 'textColor',
     message: 'Which color do you choose for the text?',
 },
 {
@@ -22,7 +24,7 @@ const questions = [{
 },
 {
     type: 'input',
-    name: 'shape-color',
+    name: 'shapeColor',
     message: 'Which color do you choose for the shape?',
 
 },
@@ -30,17 +32,22 @@ const questions = [{
 
 function writeToFile(fileName, data) {
     return inquirer.prompt(data).then((data) => {
-        const svgOutput = renderSVG.render(data)
-        console.log(svgOutput);
-
-        writeFile(fileName, svgOutput, (err) => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log('file writing successful');
-            }
-        });
+        const svgData = new Render(
+            data.text,
+            data.textColor,
+            data.shape,
+            data.shapeColor,
+        )
+        console.log(svgData);
+        const svg = svgData.renderResult();
+        return writeFile(fileName, svg);
     })
+        .then(() => {
+            console.log('file writing successful');
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 function init() {
