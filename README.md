@@ -11,7 +11,11 @@ This project is the proof that I learned through week 10. This application must
 ## Usage
 1. Continuing above Installation step 3.
 2. Some questions will appear automatically. For each question, the user can answer and move to the next question automatically.
+<img width="979" alt="Screen Shot 2023-04-19 at 11 11 02 am" src="https://user-images.githubusercontent.com/63826271/232941403-6aad0814-58ce-4a08-9a88-2b37cbcbe41c.png">
 4. After finish to type answers, you will see the rusult on SVG file. 
+
+Walkthrough Video:
+https://watch.screencastify.com/v/pscgGRZ4LdzJ4n8EuoBO
 
 ## Tests
 To run the tests for this application, first ensure that you have all dependencies installed by running.Type `npm install` on terminal.
